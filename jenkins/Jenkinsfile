@@ -1,14 +1,18 @@
 pipeline{
-    agent {
-        label 'server1'
-    }
+    agent any
+
     tools{
         maven "Maven 1"
     }
+
+    environment{
+        name = "Lokesh"
+    }
+
     stages{
         stage("build"){
             steps{
-                echo"This is build stage" 
+                echo"This is build stage and $name" 
                 sh "mvn clean package"
             }
             post{
