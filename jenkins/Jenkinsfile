@@ -26,7 +26,7 @@ pipeline{
             }
         }
         stage("test"){
-            when{expression{params.select_env == 'dev'} 
+            when{branch 'main'
             beforeAgent true}
             parallel{
                 stage('A stage'){
@@ -42,7 +42,7 @@ pipeline{
             }
         }
         stage("deploy"){
-            when {expression {params.select_env == 'prod'} 
+            when { branch 'master' 
             beforeAgent true }
             steps{
                 echo "This is deploy stage"
