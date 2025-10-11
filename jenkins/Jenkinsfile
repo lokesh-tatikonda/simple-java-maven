@@ -28,10 +28,14 @@ pipeline{
         stage("test"){
             parallel{
                 stage('A stage'){
-                    echo"This is test A"
+                    steps{
+                        echo"This is test A"
+                    }
                 }
                 stage('B stage'){
-                    echo"This is test B"
+                    steps{
+                        echo"This is test B"
+                    }
                 }
             }
         }
