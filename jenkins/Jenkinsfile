@@ -9,10 +9,14 @@ pipeline{
         name = "Lokesh"
     }
 
+    parameters {
+     string defaultValue: 'taikonda', name: 'lname'
+    }
+
     stages{
         stage("build"){
             steps{
-                echo"This is build stage and $name" 
+                echo"This is build stage and $name ${params.lname}" 
                 sh "mvn clean package"
             }
             post{
